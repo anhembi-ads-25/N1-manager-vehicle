@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 public class Manager {
     private ArrayList<Vehicle> arrayVehicle;
-    private Vehicle[] array = {};
 
     public Manager () {
         arrayVehicle = new ArrayList<>();
@@ -50,16 +49,14 @@ public class Manager {
     }
 
     public String listVehicleByFuel(String typeFuel) {
-        array = new Vehicle[arrayVehicle.size()];
-        int i = 0;
-
         for(Vehicle vehicle : arrayVehicle) {
             if (vehicle.getTypeFuel().equalsIgnoreCase(typeFuel)) {
-                array[i] = vehicle;
-                i++;
+                System.out.println("\nLista de veículos: " + vehicle.toString());
+            } else {
+                return "\nNenhum veículo com esse tipo de combustível";
             }
         }
 
-        return "\nLista de veículos: " + array;
+        return "\nOpção inválida, esse tipo de combustível não é compativel";
     }
 }
