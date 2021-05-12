@@ -88,7 +88,7 @@ public class App {
         System.out.println("\nAno de fabricação do carro:");
         int yearManufacture = keyboard.nextInt();
 
-        while (yearManufacture < 1900 && yearManufacture > date.getYear()) {
+        while (yearManufacture < 1900 || yearManufacture > date.getYear()) {
             System.out.println("Por favor, digite um ano válido de fabricação do carro.");
             yearManufacture = keyboard.nextInt();
         }
@@ -135,7 +135,9 @@ public class App {
             plate = keyboard.nextLine();
         }
 
-        if (manager.removeVehicleByPlate(plate)) {
+        boolean response = manager.removeVehicleByPlate(plate);
+
+        if (response) {
             return "\nVeículo deletado com sucesso!";
         }
 

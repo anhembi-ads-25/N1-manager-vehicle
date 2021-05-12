@@ -5,9 +5,12 @@ import models.Vehicle;
 import java.util.ArrayList;
 
 public class Manager {
-    ArrayList<Vehicle> arrayVehicle = new ArrayList<>();
+    private ArrayList<Vehicle> arrayVehicle;
+    private Vehicle[] array = {};
 
-    Vehicle[] array = {};
+    public Manager () {
+        arrayVehicle = new ArrayList<>();
+    }
 
     public void addVehicle(Vehicle vehicle) {
         arrayVehicle.add(vehicle);
@@ -16,7 +19,7 @@ public class Manager {
     public boolean removeVehicleByPlate(String plate) {
         for (Vehicle vehicle : arrayVehicle) {
             if(vehicle.getPlate().equalsIgnoreCase(plate)) {
-                arrayVehicle.remove(plate);
+                arrayVehicle.remove(vehicle);
 
                 return true;
             }
