@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Scanner;
 
 import models.Vehicle;
@@ -66,6 +67,8 @@ public class App {
     public static String storeVehicleOperation(Manager manager) {
         Scanner keyboard = new Scanner(System.in);
 
+        LocalDate date = LocalDate.now();
+
         System.out.println("\nModelo do carro:");
         String model = keyboard.nextLine();
 
@@ -85,7 +88,7 @@ public class App {
         System.out.println("\nAno de fabricação do carro:");
         int yearManufacture = keyboard.nextInt();
 
-        while (yearManufacture < 1900) {
+        while (yearManufacture < 1900 && yearManufacture > date.getYear()) {
             System.out.println("Por favor, digite um ano válido de fabricação do carro.");
             yearManufacture = keyboard.nextInt();
         }
