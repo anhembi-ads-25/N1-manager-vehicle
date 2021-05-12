@@ -13,7 +13,7 @@ public class Manager {
         arrayVehicle.add(vehicle);
     }
 
-    public boolean removeVehicle(String plate) {
+    public boolean removeVehicleByPlate(String plate) {
         for (Vehicle vehicle : arrayVehicle) {
             if(vehicle.getPlate().equals(plate)) {
                 arrayVehicle.remove(plate);
@@ -24,7 +24,7 @@ public class Manager {
         return false;
     }
 
-    public Vehicle searchPlate(String plate) {
+    public Vehicle searchVehicleByPlate(String plate) {
         for (Vehicle vehicle : arrayVehicle) {
             if (vehicle.getPlate().equals(plate)) {
                 return vehicle;
@@ -34,10 +34,10 @@ public class Manager {
     } 
 
     public String listAllsVehicle() {
-        return "Lista de veiculos: " + arrayVehicle;
+        return "\nLista de todos os veiculos: " + arrayVehicle + "\n";
     }
 
-    public double getValueTax(String plate) {
+    public double getValueTaxVehicleByPlate(String plate) {
         for (Vehicle vehicle : arrayVehicle) {
             if (vehicle.getPlate().equals(plate)) {
                 return vehicle.taxCalculate(vehicle);

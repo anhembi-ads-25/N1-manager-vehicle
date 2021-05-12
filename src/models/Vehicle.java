@@ -24,33 +24,35 @@ public class Vehicle {
 
     public double taxCalculate(Vehicle vehicle) {
         int result = currentYear - vehicle.yearManufacture;
+
         double tax = 0;
         
-        if (result < 20) {
+        if (result > 20) {
             return 0;
-        }
-
-        if (vehicle.typeFuel.equals("gasolina") || vehicle.typeFuel.equals("diesel") || vehicle.typeFuel.equals("flex") ) {
-            // 4% valor de mercado p aqueles que usam gasolina, diesel ou flex
-            tax = (vehicle.marketValue / 100) * 4;
-
-            return tax;
         } else {
-            // 3% para outros combustiveis
-            tax = (vehicle.marketValue / 100) * 3;
-            
-            return tax;
+            if (vehicle.typeFuel.equals("gasolina") || vehicle.typeFuel.equals("diesel") || vehicle.typeFuel.equals("flex")) {
+                // 4% valor de mercado p aqueles que usam gasolina, diesel ou flex
+                tax = (vehicle.marketValue / 100) * 4;
+
+                return tax;
+            } else {
+                // 3% para outros combustiveis
+                tax = (vehicle.marketValue / 100) * 3;
+                
+                return tax;
+            }
         }
     }
 
-    public String print() {
+    @Override
+    public String toString() {
         return "\nDados do veículo: " 
         + "\nModelo: " + this.model 
         + "\nMarca: " + this.brand 
         + "\nAno de Fabricação: " + this.yearManufacture
         + "\nValor de mercado: " + this.marketValue
         + "\nPlaca: " + this.plate
-        + "\nCombustível: " + this.typeFuel;
+        + "\nCombustível: " + this.typeFuel + "\n";
     }
 
     public String getModel() {
