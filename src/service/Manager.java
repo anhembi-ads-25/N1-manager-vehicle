@@ -15,7 +15,7 @@ public class Manager {
 
     public boolean removeVehicleByPlate(String plate) {
         for (Vehicle vehicle : arrayVehicle) {
-            if(vehicle.getPlate().equals(plate)) {
+            if(vehicle.getPlate().equalsIgnoreCase(plate)) {
                 arrayVehicle.remove(plate);
 
                 return true;
@@ -26,7 +26,7 @@ public class Manager {
 
     public Vehicle searchVehicleByPlate(String plate) {
         for (Vehicle vehicle : arrayVehicle) {
-            if (vehicle.getPlate().equals(plate)) {
+            if (vehicle.getPlate().equalsIgnoreCase(plate)) {
                 return vehicle;
             }
         }
@@ -39,7 +39,7 @@ public class Manager {
 
     public double getValueTaxVehicleByPlate(String plate) {
         for (Vehicle vehicle : arrayVehicle) {
-            if (vehicle.getPlate().equals(plate)) {
+            if (vehicle.getPlate().equalsIgnoreCase(plate)) {
                 return vehicle.taxCalculate(vehicle);
             }
         }
@@ -51,12 +51,12 @@ public class Manager {
         int i = 0;
 
         for(Vehicle vehicle : arrayVehicle) {
-            if (vehicle.getTypeFuel().equals(typeFuel)) {
+            if (vehicle.getTypeFuel().equalsIgnoreCase(typeFuel)) {
                 array[i] = vehicle;
                 i++;
             }
         }
 
-        return "Lista de veículos: " + array;
+        return "\nLista de veículos: " + array;
     }
 }
